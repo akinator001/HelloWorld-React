@@ -8,7 +8,7 @@ class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      title: "Hello Form Bridgelabz"
+        userName:""
     }
   }
   
@@ -17,10 +17,20 @@ class App extends React.Component{
     window.open(this.url,"_blank");
   }
 
+  onNameChange = (event)=>{
+    console.log("value is ", event.target.value);
+    this.setState({ userName: event.target.value})
+  }
+
   render (){
     return <div>
-      <h1>{this.state.title}</h1>
+      <div>
+        <h1> Hello {this.state.userName} from BridgeLabz</h1>
       <img src={logo} alt="Logo" height="50px" width="50px" onClick={this.onClick}></img>
+      </div>
+      <div>
+        <input onChange={this.onNameChange} />
+      </div>
     </div>
 
   }
